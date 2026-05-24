@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>스타로프 마케팅 | 검색되는 브랜드, 문의되는 마케팅</title>
+  <meta name="description" content="블로그마케팅, 플레이스마케팅, 홈페이지제작, SEO 콘텐츠 운영까지 검색 유입 and 문의 전환을 연결하는 온라인 마케팅 대행 서비스입니다." />
+  <meta name="keywords" content="블로그마케팅, 플레이스마케팅, 홈페이지제작, SEO 콘텐츠 제작, 네이버 블로그 마케팅, 네이버 플레이스 마케팅, 마케팅 대행사" />
+  
+  <!-- Phosphor Icons Weights via fast & stable jsDelivr CDN -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(2, 6, 23, 0.86);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .nav-wrap {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 900; letter-spacing: -0.4px; font-size: 20px;
+    }
+    .logo-mark {
+      width: 38px; height: 38px; border-radius: 16px;
+      background: #ffffff; color: #020617;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900;
+    }
+    .nav-menu {
+      display: flex; align-items: center; gap: 28px;
+      color: #cbd5e1; font-size: 15px; font-weight: 600;
+    }
+    .nav-menu a:hover { color: #ffffff; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border: 0; cursor: pointer; border-radius: 999px;
+      font-weight: 800; transition: 0.2s ease; white-space: nowrap;
+    }
+    .btn-primary {
+      background: #2563eb; color: #ffffff; padding: 15px 24px;
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.32);
+    }
+    .btn-primary:hover { transform: translateY(-2px); background: #1d4ed8; }
+    .btn-white { background: #ffffff; color: #020617; padding: 14px 22px; }
+    .btn-white:hover { background: #e2e8f0; }
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.28); color: #ffffff;
+      padding: 15px 24px; background: rgba(255, 255, 255, 0.04);
+    }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.12); }
+    .btn-block { width: 100%; padding: 18px; font-size: 16px; border-radius: 16px;}
+
+    /* Hero Section */
+    .hero {
+      position: relative; min-height: 860px; padding: 160px 0 90px;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(37, 99, 235, 0.42), transparent 30%),
+        radial-gradient(circle at 15% 10%, rgba(124, 58, 237, 0.28), transparent 32%),
+        linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+      color: #ffffff; overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px; border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10); border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0; font-weight: 700; margin-bottom: 24px; font-size: 14px;
+    }
+    .hero h1 { color: #ffffff !important; font-size: clamp(42px, 6vw, 78px); line-height: 1.08; letter-spacing: -2.6px; font-weight: 950; margin-bottom: 26px; }
+    .hero h1 span { color: #60a5fa; }
+    .hero p { max-width: 640px; color: #cbd5e1; font-size: clamp(18px, 2vw, 22px); margin-bottom: 34px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.10); border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 34px; padding: 28px;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.28); backdrop-filter: blur(20px);
+    }
+    .hero-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .mini-card {
+      padding: 22px; border-radius: 26px; background: rgba(2, 6, 23, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.10); min-height: 128px;
+    }
+    .mini-card i { font-size: 32px; margin-bottom: 13px; color: #60a5fa; }
+    .mini-card strong { display: block; font-size: 17px; letter-spacing: -0.4px; }
+    .strategy-box { margin-top: 18px; background: #ffffff; color: #020617; border-radius: 28px; padding: 28px; }
+    .strategy-box small { display: block; color: #64748b; font-weight: 900; margin-bottom: 8px; }
+    .strategy-box b { display: block; font-size: 28px; line-height: 1.25; letter-spacing: -1px; }
+
+    /* Common Sections */
+    .section { padding: 104px 0; }
+    .section-light { background: #f8fafc; }
+    .section-dark { background: #020617; color: #ffffff; }
+    .section-title { max-width: 760px; margin-bottom: 54px; }
+    .eyebrow { color: #2563eb; font-weight: 950; letter-spacing: 0.08em; font-size: 14px; margin-bottom: 12px; }
+    .section-dark .eyebrow { color: #60a5fa; }
+    .section-title h2, .split-text h2 { font-size: clamp(34px, 4vw, 54px); line-height: 1.16; letter-spacing: -1.8px; font-weight: 950; margin-bottom: 18px; }
+    .section-title p, .split-text p { font-size: 18px; color: #64748b; }
+    .section-dark .section-title p { color: #cbd5e1; }
+
+    /* Services Grid */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 32px; padding: 34px; transition: 0.22s ease; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12); }
+    .service-icon {
+      width: 62px; height: 62px; border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      background: #020617; color: #ffffff; font-size: 28px; margin-bottom: 24px;
+      transition: all 0.25s ease;
+    }
+    .service-card:hover .service-icon {
+      background: #1e293b;
+      transform: translateY(-2px);
+    }
+    .service-card h3 { font-size: 24px; margin-bottom: 12px; letter-spacing: -0.8px; }
+    .service-card p { color: #64748b; font-size: 16px; }
+
+    /* Split Sections */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .check-list { display: grid; gap: 14px; margin-top: 28px; }
+    .check-item { display: flex; align-items: center; gap: 12px; font-weight: 850; font-size: 18px; }
+    .check { width: 28px; height: 28px; flex: 0 0 28px; border-radius: 999px; background: #2563eb; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; }
+    .target-box { background: #ffffff; border-radius: 34px; padding: 34px; box-shadow: 0 26px 70px rgba(15, 23, 42, 0.10); }
+    .target-box h3 { font-size: 32px; line-height: 1.22; letter-spacing: -1.2px; margin-bottom: 24px; }
+    .target-box h3 span { display: block; font-size: inherit; font-weight: inherit; color: inherit; }
+    .target-list { display: grid; gap: 12px; }
+    .target-list div { padding: 16px 18px; border-radius: 20px; background: #f1f5f9; color: #334155; font-weight: 750; }
+
+    /* Cases / Social Proof Section */
+    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .case-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+    .case-badge { display: inline-block; background: #eff6ff; color: #2563eb; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 800; margin-bottom: 16px; }
+    .case-card h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; line-height: 1.3;}
+    .case-card p { font-size: 15px; color: #64748b; }
+
+    /* Process Grid */
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .process-card { border-radius: 32px; padding: 30px; background: rgba(255, 255, 255, 0.09); border: 1px solid rgba(255, 255, 255, 0.12); }
+    .process-card .num { display: block; color: #60a5fa; font-size: 38px; font-weight: 950; margin-bottom: 22px; }
+    .process-card h3 { font-size: 23px; margin-bottom: 12px; letter-spacing: -0.6px; }
+    .process-card p { color: #cbd5e1; }
+
+    /* Strategy Grid */
+    .strategy-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .strategy-chip { padding: 20px; border-radius: 24px; background: #f1f5f9; font-weight: 850; text-align: center; }
+    .notice-box { margin-top: 28px; padding: 24px; border-radius: 26px; background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; font-weight: 750; }
+
+    /* Contact & Form Section */
+    .contact { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; text-align: center; }
+    .contact h2 { max-width: 850px; margin: 0 auto 20px; font-size: clamp(34px, 5vw, 56px); line-height: 1.16; letter-spacing: -1.8px; font-weight: 950; }
+    .contact p { max-width: 760px; margin: 0 auto 34px; color: #dbeafe; font-size: 19px; }
+    
+    .contact-form {
+      max-width: 640px; margin: 40px auto 0; background: #ffffff;
+      padding: 40px; border-radius: 32px; color: #020617; text-align: left;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 15px; color: #334155;}
+    .form-control {
+      width: 100%; padding: 16px; border: 1px solid #cbd5e1; border-radius: 16px;
+      font-family: inherit; font-size: 15px; outline: none; transition: border-color 0.2s; background: #f8fafc;
+    }
+    .form-control:focus { border-color: #2563eb; background: #ffffff; }
+    textarea.form-control { resize: vertical; min-height: 120px; }
+
+    /* Footer */
+    .footer { padding: 50px 0; background: #020617; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.10); }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-bottom: 20px;}
+    .footer-top strong { color: #ffffff; font-size: 20px; }
+    .footer-legal { font-size: 14px; line-height: 1.7; color: #64748b; }
+    .footer-legal span { display: inline-block; margin-right: 14px; }
+    .footer-legal a { text-decoration: underline; }
+    .footer-legal a:hover { color: #ffffff; }
+
+    /* Mobile Contact Bar */
+    .mobile-contact { display: none; position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 1001; gap: 10px; }
+    .mobile-contact a { flex: 1; text-align: center; padding: 14px 10px; border-radius: 18px; color: #ffffff; font-weight: 900; box-shadow: 0 16px 40px rgba(15, 23, 42, 0.25); }
+    .mobile-contact .call { background: #020617; }
+    .mobile-contact .kakao { background: #2563eb; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .nav-menu { display: none; }
+      .hero { min-height: auto; padding-top: 130px; }
+      .hero-grid, .split { grid-template-columns: 1fr; }
+      .services-grid, .process-grid, .strategy-grid, .cases-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .logo span { font-size: 16px; }
+      .header .btn-white { display: none; }
+      .hero h1 { letter-spacing: -1.8px; }
+      .hero-card-grid, .services-grid, .process-grid, .strategy-grid, .cases-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .section { padding: 78px 0; }
+      .contact-form { padding: 24px; border-radius: 24px; }
+      .mobile-contact { display: flex; }
+      .footer { padding-bottom: 90px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav-wrap">
+      <a href="#top" class="logo" aria-label="스타로프 마케팅 홈">
+        <span class="logo-mark">S</span>
+        <span>스타로프 마케팅</span>
+      </a>
+      <nav class="nav-menu" aria-label="주요 메뉴">
+        <a href="#services">서비스</a>
+        <a href="#cases">성공사례</a>
+        <a href="#why">차별점</a>
+        <a href="#process">진행방식</a>
+        <a href="#contact">문의</a>
+      </nav>
+      <a href="#contact" class="btn btn-white">무료 진단</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> 검색되는 브랜드, 문의되는 마케팅</div>
+          <h1>
+            블로그, 플레이스,<br />
+            홈페이지까지<br />
+            <span>문의로 연결합니다</span>
+          </h1>
+          <p>
+            상위노출만 목표로 하지 않습니다. 고객이 검색하고, 클릭하고, 신뢰하고, 문의하게 만드는 온라인 마케팅 구조를 설계합니다.
+          </p>
+          <div class="hero-actions">
+            <a href="https://open.kakao.com/o/sQ8vAsai" target="_blank" rel="noopener" class="btn btn-primary">무료 마케팅 진단 받기 <i class="ph-bold ph-arrow-right"></i></a>
+            <a href="#services" class="btn btn-outline">서비스 보기</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="핵심 서비스 요약">
+          <div class="hero-card-grid">
+            <div class="mini-card"><i class="ph-bold ph-magnifying-glass" aria-hidden="true"></i><strong>블로그 SEO</strong></div>
+            <div class="mini-card"><i class="ph-bold ph-map-pin" aria-hidden="true"></i><strong>플레이스 최적화</strong></div>
+            <div class="mini-card"><i class="ph-bold ph-desktop" aria-hidden="true"></i><strong>홈페이지 제작</strong></div>
+            <div class="mini-card"><i class="ph-bold ph-chat-centered-text" aria-hidden="true"></i><strong>문의 전환 설계</strong></div>
+          </div>
+          <div class="strategy-box">
+            <div style="font-size: 13px; color: #64748b; font-weight: 900; margin-bottom: 8px;">핵심 전략</div>
+            <b>검색 유입 <i class="ph-bold ph-arrow-right" style="font-size: 20px; vertical-align: middle; margin:0 4px; color:#cbd5e1;"></i> 신뢰 형성 <i class="ph-bold ph-arrow-right" style="font-size: 20px; vertical-align: middle; margin:0 4px; color:#cbd5e1;"></i> 문의 전환</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">SERVICE</div>
+          <h2>필요한 마케팅을 하나의 구조로 연결합니다</h2>
+          <p>블로그, 플레이스, 홈페이지, 카페, SNS를 따로 운영하지 않고 고객 문의가 발생하는 흐름으로 설계합니다.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon"><i class="ph-bold ph-magnifying-glass" aria-hidden="true"></i></div>
+            <h3>블로그마케팅</h3>
+            <p>네이버 검색 노출과 고객 문의를 목표로 키워드 분석, 제목 설계, 본문 구성까지 최적화합니다.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="ph-bold ph-map-pin" aria-hidden="true"></i></div>
+            <h3>플레이스마케팅</h3>
+            <p>지역 검색, 지도 노출, 리뷰 흐름, 업체 소개글을 점검해 실제 방문 전환을 높입니다.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="ph-bold ph-desktop" aria-hidden="true"></i></div>
+            <h3>홈페이지제작</h3>
+            <p>브랜드 신뢰와 문의 전환을 높이는 모바일 최적화 홈페이지와 랜딩페이지를 제작합니다.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="ph-bold ph-pencil-simple-line" aria-hidden="true"></i></div>
+            <h3>SEO 콘텐츠 제작</h3>
+            <p>검색 키워드, 고객 고민, 클릭 제목, CTA까지 반영한 전환형 콘텐츠 기획·제작합니다.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="ph-bold ph-users-three" aria-hidden="true"></i></div>
+            <h3>카페마케팅</h3>
+            <p>정보성 글, 후기형 콘텐츠, 댓글 흐름을 설계해 커뮤니티 내 자연스러운 관심과 신뢰를 만듭니다.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><i class="ph-bold ph-puzzle-piece" aria-hidden="true"></i></div>
+            <h3>콘텐츠 운영 시스템</h3>
+            <p>키워드 선정, 콘텐츠 기획, 발행 흐름, 문의 연결까지 스타로프 마케팅만의 꾸준히 운영 가능한 구조를 세팅합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases" class="section section-light">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">CASE STUDY</div>
+          <h2>결과로 증명하는 전환의 차이</h2>
+          <p>화려한 포장보다, 실제 고객의 비즈니스 성장에 기여한 수치가 진짜 실력입니다.</p>
+        </div>
+        
+        <div class="cases-grid">
+          <div class="case-card">
+            <div class="case-badge">A 치과 의원</div>
+            <h3>블로그 세팅 3개월 만에<br>신규 문의 월 15건 돌파</h3>
+            <p>단순 상위노출이 아닌 환자의 고민을 해결하는 정보성 SEO 콘텐츠와 홈페이지 연동을 통해 이뤄낸 결과입니다.</p>
+          </div>
+          <div class="case-card">
+            <div class="case-badge">B 지역 전문 학원</div>
+            <h3>플레이스 최적화 후<br>상담 방문율 100% 증가</h3>
+            <p>지도 검색 순위 상승과 함께 리뷰 흐름 및 소개글을 매력적으로 개편하여 실제 학부모 방문을 이끌어냈습니다.</p>
+          </div>
+          <div class="case-card">
+            <div class="case-badge">C 법률 사무소</div>
+            <h3>랜딩페이지 리뉴얼로<br>광고 전환 단가(CPA) 30% 절감</h3>
+            <p>의뢰인의 신뢰를 얻을 수 있는 구조적 카피라이팅과 모바일 최적화 UI로 이탈률을 획기적으로 낮췄습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="container split">
+        <div class="split-text">
+          <div class="eyebrow">WHY US</div>
+          <h2>조회수보다 중요한 것은 실제 문의입니다</h2>
+          <p>좋은 글 하나보다 꾸준히 검색되는 콘텐츠 구조가 중요합니다. 예쁜 홈페이지 하나보다 고객이 신뢰하고 문의하는 흐름이 중요합니다.</p>
+          <div class="check-list">
+            <div class="check-item"><span class="check"><i class="ph-bold ph-check"></i></span>검색 키워드를 먼저 분석합니다</div>
+            <div class="check-item"><span class="check"><i class="ph-bold ph-check"></i></span>콘텐츠 흐름을 문의 중심으로 설계합니다</div>
+            <div class="check-item"><span class="check"><i class="ph-bold ph-check"></i></span>블로그, 플레이스, 홈페이지를 연결합니다</div>
+            <div class="check-item"><span class="check"><i class="ph-bold ph-check"></i></span>업종별 고객 심리에 맞춰 문구를 다르게 구성합니다</div>
+          </div>
+        </div>
+
+        <div class="target-box">
+          <h3><span>이런 대표님께 필요합니다</span></h3>
+          <div class="target-list">
+            <div>광고비는 쓰고 있는데 문의가 없는 자영업자</div>
+            <div>블로그를 운영하지만 검색 노출이 약한 업체</div>
+            <div>네이버 플레이스 순위가 낮아 고민인 매장</div>
+            <div>홈페이지는 있지만 상담 전환이 거의 없는 회사</div>
+            <div>병원, 학원, 음식점, 프랜차이즈 홍보가 필요한 대표님</div>
+            <div>모든 온라인 채널을 한 번에 정리하고 싶은 사업자</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section section-dark">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">PROCESS</div>
+          <h2>진단부터 개선까지 체계적으로 진행합니다</h2>
+          <p>광고비를 더 쓰기 전에 현재 온라인 구조부터 점검하고, 노출과 문의를 동시에 개선합니다.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="num">01</span>
+            <h3>현재 상태 진단</h3>
+            <p>블로그, 플레이스, 홈페이지, 경쟁사 노출 현황을 점검합니다.</p>
+          </article>
+          <article class="process-card">
+            <span class="num">02</span>
+            <h3>키워드 전략 설계</h3>
+            <p>업종, 지역, 고객 검색 의도에 맞는 핵심 키워드를 선정합니다.</p>
+          </article>
+          <article class="process-card">
+            <span class="num">03</span>
+            <h3>콘텐츠 구조 제작</h3>
+            <p>검색 노출과 문의 전환을 동시에 고려한 콘텐츠 흐름을 만듭니다.</p>
+          </article>
+          <article class="process-card">
+            <span class="num">04</span>
+            <h3>개선 및 연결</h3>
+            <p>제목, 문구, CTA, 채널 연결을 지속적으로 보완합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategy" class="section section-light">
+      <div class="container split">
+        <div class="split-text">
+          <div class="eyebrow">CUSTOM STRATEGY</div>
+          <h2>업종마다 고객이 검색하는 방식은 다릅니다</h2>
+          <p>같은 블로그 글이라도 병원, 학원, 음식점, 부동산은 고객이 보는 기준이 다릅니다. 업종별 고객 심리와 검색 의도에 맞춰 콘텐츠 방향을 설계합니다.</p>
+          <div class="notice-box">
+            포트폴리오를 무리하게 공개하지 않아도 됩니다. 상담 단계에서 현재 업종에 맞는 키워드 방향과 개선 포인트를 구체적으로 안내하는 방식으로 신뢰를 만듭니다.
+          </div>
+        </div>
+
+        <div class="strategy-grid">
+          <div class="strategy-chip">지역 검색형</div>
+          <div class="strategy-chip">문의 전환형</div>
+          <div class="strategy-chip">신뢰 형성형</div>
+          <div class="strategy-chip">방문 유도형</div>
+          <div class="strategy-chip">브랜드 블로그형</div>
+          <div class="strategy-chip">랜딩페이지형</div>
+          <div class="strategy-chip">플레이스 강화형</div>
+          <div class="strategy-chip">콘텐츠 운영형</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>지금 온라인 마케팅 구조를 점검해보세요</h2>
+        <p>현재 운영 중인 채널을 분석하고 검색 노출과 문의 전환 관점의 개선 포인트를 안내드립니다.</p>
+        
+        <form class="contact-form" action="#" method="POST" onsubmit="alert('성공적으로 접수되었습니다. (현재 프론트엔드 예시입니다)'); return false;">
+          <div class="form-group">
+            <label for="companyName">업체명 / 담당자명 *</label>
+            <input type="text" id="companyName" class="form-control" placeholder="예: 스타치과 / 홍길동 원장" required>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">연락처 *</label>
+            <input type="tel" id="phoneNumber" class="form-control" placeholder="예: 010-1234-5678" required>
+          </div>
+          <div class="form-group">
+            <label for="websiteUrl">운영 중인 블로그 또는 홈페이지 (선택)</label>
+            <input type="url" id="websiteUrl" class="form-control" placeholder="https://">
+          </div>
+          <div class="form-group">
+            <label for="message">현재 가장 고민되는 부분 *</label>
+            <textarea id="message" class="form-control" placeholder="예: 블로그 글은 꾸준히 쓰는데 노출이 안 됩니다. 홈페이지 문의가 너무 적습니다." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">무료 마케팅 진단 신청하기</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <strong>스타로프 마케팅</strong>
+        <span>블로그마케팅 · 플레이스마케팅 · 홈페이지제작 · SEO 콘텐츠 운영</span>
+      </div>
+      <div class="footer-legal">
+        <span><b>상호명</b> 스타로프</span>
+        <span><b>대표자</b> 김세윤</span> <span><b>사업자등록번호</b> 657-32-01577</span><br>
+        <span><b>주소</b> 서울특별시 금천구 가산디지털1로 19 (가산동, 대륭테크노타운18차)</span>
+        <span><b>이메일</b> <a href="mailto:starrope2023@gmail.com">starrope2023@gmail.com</a></span>
+        <span><b>Mobile</b> 010-5833-9874</span><br>
+        <span style="margin-top: 10px; display: block;">
+          <a href="#">이용약관</a> &nbsp;|&nbsp; 
+          <a href="#"><b>개인정보처리방침</b></a>
+        </span>
+        <span style="margin-top: 16px; display: block; color: #475569;">
+          Copyright © 스타로프 마케팅. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-contact" aria-label="모바일 빠른 상담 버튼">
+    <a class="call" href="tel:010-5833-9874"><i class="ph-fill ph-phone-call" aria-hidden="true"></i> 전화상담</a>
+    <a class="kakao" href="https://open.kakao.com/o/sQ8vAsai" target="_blank" rel="noopener"><i class="ph-fill ph-chat-circle" aria-hidden="true"></i> 카톡상담</a>
+  </div>
+</body>
+</html>
